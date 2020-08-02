@@ -1,6 +1,4 @@
-
 { config, pkgs, ... }:
-
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -16,16 +14,20 @@
     pkgs.zsh
   ];
 
-  # programs.zsh = {
-  #   enable = true;
-  # };
-
-  programs.zsh.enable = true;
-
-  programs.zsh.oh-my-zsh = {
+  programs.zsh = {
     enable = true;
-    theme = "robbyrussell";
-    plugins = [ "git" "sudo" ];
+    autocd = false;
+    history = {
+      extended = true;
+      size = 100000;
+    };
+    
+    oh-my-zsh = {
+      enable = true;
+      custom = "\$HOME/.config/zsh_custom";
+      theme = "gentoo-qezz"; # gentoo theme but RPROMPT is removed
+      plugins = [ "git" "sudo" ];
+    };
   };
 
   # This value determines the Home Manager release that your
