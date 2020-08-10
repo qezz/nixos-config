@@ -8,10 +8,19 @@
 
   home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
 
-  home.packages = [
-    pkgs.htop
-    pkgs.konsole
-    pkgs.zsh
+  home.packages = with pkgs; [
+    htop
+    konsole
+    zsh
+    nix-index
+    direnv
+    du-dust
+    tokei
+    file
+    steam
+    vlc
+    # transmission
+    transmission-gtk
   ];
 
   programs.zsh = {
@@ -21,6 +30,7 @@
       extended = true;
       size = 100000;
     };
+    envExtra = "PATH=$PATH:/home/sergey/.cargo/bin";
     
     oh-my-zsh = {
       enable = true;

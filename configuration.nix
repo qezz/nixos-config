@@ -55,7 +55,7 @@
     # firefox-bin-unwrapped
     emacs
     pcmanfm
-    rustup
+    
     tdesktop
     git
     discord
@@ -63,8 +63,18 @@
     shutter
     alacritty
 
+    rustup
     clang
-    pkg-config
+    # pkg-config
+    rustc
+    cargo
+    binutils
+    gcc
+    gnumake
+    openssl
+    pkgconfig
+
+    wine
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -99,20 +109,26 @@
   environment.pathsToLink = [ "/libexec" "/share/zsh" ];
 
   fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
+    # noto-fonts
+    # noto-fonts-cjk
+    # noto-fonts-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
-    mplus-outline-fonts
-    dina-font
-    proggyfonts
+    # mplus-outline-fonts
+    # dina-font
+    # proggyfonts
     font-awesome_4
     terminus_font
     terminus_font_ttf
     ubuntu_font_family
+    open-sans
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Ubuntu" ];
+    sansSerif = [ "Ubuntu" ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
