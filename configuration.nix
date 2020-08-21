@@ -73,8 +73,10 @@
     gnumake
     openssl
     pkgconfig
+    postgresql
 
     wine
+    winetricks
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -137,6 +139,20 @@
   # networking.firewall.enable = false;
   
   services = {
+    postgresql = {
+      enable = true;
+      enableTCPIP = true;
+      authentication = pkgs.lib.mkOverride 10 ''
+        local all all trust
+        host all all ::1/128 trust
+      '';
+      initialScript = pkgs.writeText "backend-initScript" ''
+        CREATE ROLE sergey WITH LOGIN PASSWORD 'password' CREATEDB;
+        CREATE DATABASE db;
+        GRANT ALL PRIVILEGES ON DATABASE db TO sergey;
+      '';
+    };
+
     openssh.enable = true;
 
 

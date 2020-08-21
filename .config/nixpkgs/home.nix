@@ -21,6 +21,9 @@
     vlc
     # transmission
     transmission-gtk
+    fd
+    bat
+    stlink
   ];
 
   programs.zsh = {
