@@ -23,7 +23,12 @@
     transmission-gtk
     fd
     bat
-    stlink
+    # stlink
+
+    krita
+
+    # dev
+    # ghc
   ];
 
   programs.zsh = {
@@ -33,7 +38,8 @@
       extended = true;
       size = 100000;
     };
-    envExtra = "PATH=$PATH:/home/sergey/.cargo/bin";
+    envExtra = "PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
+      NIX_PAGER=";
     
     oh-my-zsh = {
       enable = true;
