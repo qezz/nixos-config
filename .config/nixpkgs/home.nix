@@ -22,13 +22,21 @@
     # transmission
     transmission-gtk
     fd
+    tree
     bat
+
+    calibre
+    syncplay
     # stlink
 
     krita
+    gimp
 
     # dev
     # ghc
+    cabal2nix
+    nix-prefetch-git
+    cabal-install
   ];
 
   programs.zsh = {
@@ -38,8 +46,9 @@
       extended = true;
       size = 100000;
     };
+    initExtra = "eval \"$(direnv hook zsh)\"";
     envExtra = "PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
-      NIX_PAGER=";
+NIX_PAGER=";
     
     oh-my-zsh = {
       enable = true;
@@ -47,6 +56,12 @@
       theme = "gentoo-qezz"; # gentoo theme but RPROMPT is removed
       plugins = [ "git" "sudo" ];
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableNixDirenvIntegration = true;
+    enableZshIntegration = true;
   };
 
   # This value determines the Home Manager release that your
