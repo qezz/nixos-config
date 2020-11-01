@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # allowUnfree = true;
@@ -19,24 +18,50 @@
     file
     steam
     vlc
+    mpv
+
     # transmission
     transmission-gtk
+    libreoffice
+    
     fd
     tree
     bat
+    exa
 
-    calibre
+    # python-language-server # nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA python-language-server
+
+    cron
+
+    # calibre
     syncplay
     # stlink
+    zoom-us
 
     krita
     gimp
+    zathura
+
+    kicad
+    # yed # install via: nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA yed
+    # obsidian # install via: nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA obsidian
+
+    # mailspring #  nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA mailspring
+    thunderbird
+
+    # aws
+    awscli
+
+    unrar
+    unzip
 
     # dev
     # ghc
     cabal2nix
     nix-prefetch-git
     cabal-install
+
+    zola
   ];
 
   programs.zsh = {
@@ -46,7 +71,7 @@
       extended = true;
       size = 100000;
     };
-    initExtra = "eval \"$(direnv hook zsh)\"";
+    initExtra = "eval \"$(direnv hook zsh)\"; alias l='exa -la'";
     envExtra = "PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
 NIX_PAGER=";
     

@@ -28,6 +28,11 @@
       fsType = "ntfs";
     };
 
+  fileSystems."/mnt/new_volume" =
+    { device = "/dev/disk/by-uuid/260AA8A00AA86F0D";
+      fsType = "ntfs";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/a61c7646-8f89-4c37-bc45-8939f9de3016"; }
     ];

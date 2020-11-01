@@ -12,6 +12,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  virtualisation.docker.enable = true;
+
   networking = {
     hostName = "nixos"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -55,6 +57,7 @@
     # firefox-bin-unwrapped
     emacs
     pcmanfm
+    xarchiver
     
     tdesktop
     git
@@ -74,6 +77,10 @@
     openssl
     pkgconfig
     postgresql
+    docker
+    dunst
+
+    unzip
 
     wine
     winetricks
@@ -139,6 +146,16 @@
   # networking.firewall.enable = false;
   
   services = {
+
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        ''
+	  */1 * * * *      sergey    . /etc/profile; (cd /mnt/new_volume/obsidian && ([[ -z $(git status -s) ]] || (git add -A && git commit -m "Cron commit at $(date)" && git push origin main)))
+	''
+      ];
+    };
+
     postgresql = {
       enable = true;
       enableTCPIP = true;
@@ -214,7 +231,7 @@
   users.users.sergey = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "audio" "video" ];
+    extraGroups = [ "wheel" "audio" "video" "docker" ];
   };
 
   # This value determines the NixOS release from which the default
