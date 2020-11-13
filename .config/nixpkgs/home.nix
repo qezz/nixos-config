@@ -23,6 +23,8 @@
     # transmission
     transmission-gtk
     libreoffice
+
+    testdisk-qt
     
     fd
     tree
@@ -30,23 +32,30 @@
     exa
 
     # python-language-server # nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA python-language-server
+    python-language-server
 
     cron
+    # redshift
+    redshift-wlr
+    hicolor-icon-theme
 
     # calibre
     syncplay
     # stlink
     zoom-us
+    # teams # install from master, it includes the fix for screen sharing
 
     krita
     gimp
     zathura
+    flameshot
 
     kicad
-    # yed # install via: nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA yed
+    # yed # install from master
     # obsidian # install via: nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA obsidian
 
-    # mailspring #  nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA mailspring
+    mailspring #  nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA mailspring
+    libsecret
     thunderbird
 
     # aws
