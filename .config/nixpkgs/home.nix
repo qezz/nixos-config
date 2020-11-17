@@ -20,6 +20,8 @@
     vlc
     mpv
 
+    dunst
+
     # transmission
     transmission-gtk
     libreoffice
@@ -38,6 +40,7 @@
     # redshift
     redshift-wlr
     hicolor-icon-theme
+    # aws-sam-cli
 
     # calibre
     syncplay
@@ -96,6 +99,64 @@ NIX_PAGER=";
     enable = true;
     enableNixDirenvIntegration = true;
     enableZshIntegration = true;
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        font = "Ubuntu Mono 11";
+        markup = "full";
+        format = "<b>%s</b>\n%b";
+        sort = "yes";
+        indicate_hidden = "yes";
+        alignment = "left";
+        bounce_freq = 0;
+        show_age_threshold = 60;
+        word_wrap = "yes";
+        ignore_newline = "no";
+        geometry = "300x5-40+30";
+        shrink = "yes";
+        transparency = 10;
+        idle_threshold = 120;
+        monitor = 0;
+        follow = "mouse";
+        sticky_history = "yes";
+        history_length = 100;
+        show_indicators = "yes";
+        line_height = 0;
+        separator_height = 2;
+        padding = 8;
+        horizontal_padding = 8;
+        separator_color = "frame";
+        frame_width = 1;
+        # startup_notification = true;
+        # dmenu = /usr/bin/dmenu -p dunst:;
+        # browser = /usr/bin/firefox -new-tab;
+        icon_position = "left";
+        max_icon_size = 40;
+      };
+      shortcuts = {
+        history = "ctrl+shift+minus";
+      };
+
+      urgency_low = {
+        background = "#222222";
+        foreground = "#888888";
+        timeout = 10;
+      };
+      urgency_normal = {
+        background = "#222222";
+        foreground = "#888888";
+        timeout = 10;
+      };
+      urgency_critical = {
+        background = "#aa2222";
+        foreground = "#000000";
+        timeout = 10;
+        frame_color = "#ff0000";
+      };
+    };
   };
 
   # This value determines the Home Manager release that your
