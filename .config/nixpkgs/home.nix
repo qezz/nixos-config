@@ -7,6 +7,12 @@
 
   home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
 
+  xsession.pointerCursor = {
+    package = pkgs.vanilla-dmz;
+    name = "Vanilla-DMZ";
+    size = 16;
+  };
+
   home.packages = with pkgs; [
     htop
     konsole
