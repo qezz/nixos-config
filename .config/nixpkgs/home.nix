@@ -89,7 +89,13 @@
       extended = true;
       size = 100000;
     };
-    initExtra = "eval \"$(direnv hook zsh)\"; alias l='exa -la'";
+    initExtra = "eval \"$(direnv hook zsh)\"; alias l='exa -la'
+bindkey '^T' transpose-chars
+bindkey '^[t' transpose-words
+bindkey '^K' kill-line
+bindkey '^[l' down-case-word
+bindkey '^[c' capitalize-word
+";
     envExtra = "PATH=$PATH:$HOME/bin:$HOME/.cargo/bin
 NIX_PAGER=";
     
@@ -99,6 +105,10 @@ NIX_PAGER=";
       theme = "gentoo-qezz"; # gentoo theme but RPROMPT is removed
       plugins = [ "git" "sudo" ];
     };
+  };
+
+  programs.fzf = {
+    enable = true;
   };
 
   programs.direnv = {
