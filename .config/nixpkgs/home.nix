@@ -40,7 +40,7 @@
     exa
 
     # python-language-server # nix-env -f https://github.com/NixOS/nixpkgs/archive/master.tar.gz -iA python-language-server
-    python-language-server
+    # python-language-server
 
     cron
     # redshift
